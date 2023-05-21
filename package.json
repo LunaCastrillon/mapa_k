@@ -1,0 +1,16 @@
+{
+  "name": "mapas_k",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mapa_k.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node mapa_k.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "prompt-sync": "^4.2.0"
+  }
+}
