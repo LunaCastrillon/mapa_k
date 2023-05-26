@@ -1,4 +1,4 @@
-const Tabla = require("cli-mapaK3");
+const Tabla = require("cli-table3");
 
 const mapaK = new Tabla({
   chars: {
