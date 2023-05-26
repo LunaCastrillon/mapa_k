@@ -1,32 +1,37 @@
-const prompt = require('prompt-sync')({ sigint: true });
+const { crear_matriz, simplificar } = require("./utils.js");
 
-const expression = prompt('Enter your algebraic boolean expression: ');
+const prompt = require("prompt-sync")({ sigint: true });
 
-let expressionArray = expression.split('+');
+const cantidad_variables = +prompt("Ingresa la cantidad de variables: ");
+const expresion = prompt("Ingresa tu expresión booleana algebraica: ");
 
-let expressionArrayNumbers = []
+let expresionArray = expresion.split("+");
+let expresionArrayNumeros = [];
 
-console.log(expressionArray);
+for (const term of expresionArray) {
+  let auxiliar = "";
 
-for (const term of expressionArray) {
-    console.log(term);
-    let auxTerm = '';
-
-    for (const literal of term) {
-        
-        if (literal.match('[a-zA-Z]')) {
-            auxTerm += '1'
-        }
-
-        if (literal === '~' || literal === '!' || literal === "'") {
-            auxTerm = auxTerm.slice(0, -1) + '0';
-        }
+  for (const literal of term) {
+    if (literal.match("[a-zA-Z]")) {
+      auxiliar += "1";
     }
 
-    expressionArrayNumbers.push(auxTerm);
+    if (literal === "~" || literal === "!" || literal === "'") {
+      auxiliar = auxiliar.slice(0, -1) + "0";
+    }
+  }
 
+  expresionArrayNumeros.push(auxiliar);
 }
 
-console.log(expressionArrayNumbers)
+console.log(expresionArray.join(" + "));
+console.log(expresionArrayNumeros.join(" + "));
 
-map_k()
+const [table, indice_terminos] = crear_matriz(
+  cantidad_variables,
+  expresionArrayNumeros
+);
+const simplificacion = simplificar(table, indice_terminos);
+
+console.log(table.toString());
+console.log(simplificacion);

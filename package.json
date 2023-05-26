@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cli-table3": "^0.6.3",
     "prompt-sync": "^4.2.0"
   }
 }
