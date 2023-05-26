@@ -11,12 +11,12 @@ let expresionArrayNumeros = [];
 for (const term of expresionArray) {
   let auxiliar = "";
 
-  for (const literal of term) {
-    if (literal.match("[a-zA-Z]")) {
+  for (const letra of term) {
+    if (letra.match("[a-zA-Z]")) {
       auxiliar += "1";
     }
 
-    if (literal === "~" || literal === "!" || literal === "'") {
+    if (letra === "~" || letra === "!" || letra === "'") {
       auxiliar = auxiliar.slice(0, -1) + "0";
     }
   }

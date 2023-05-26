@@ -1,6 +1,6 @@
-const Table = require("cli-table3");
+const Tabla = require("cli-mapaK3");
 
-const table = new Table({
+const mapaK = new Tabla({
   chars: {
     top: "═",
     "top-mid": "╤",
@@ -35,7 +35,7 @@ const crear_matriz = (cantidad_variables, expresion) => {
 
   let indice_terminos = [];
 
-  table.push(Headers[cantidad_variables]);
+  mapaK.push(Headers[cantidad_variables]);
 
   let cantidad_columnas = columnas[cantidad_variables].length;
 
@@ -44,7 +44,11 @@ const crear_matriz = (cantidad_variables, expresion) => {
 
     let fila = [`${columnas[cantidad_variables][i]}`]; // agregar el primer elemento de la fila
 
-    let contador_para_llenar_filas = cantidad_variables === 2 ? 2 : 4;
+    let contador_para_llenar_filas = 2
+    if(cantidad_variables !== 2) {
+      contador_para_llenar_filas = 4
+    }
+
 
     for (let j = 0; j < contador_para_llenar_filas; j++) {
       let termino = `${columnas[cantidad_variables][i] + header[j]}`; // sumamos columna y fila para obtener el valor de la celda
@@ -57,10 +61,10 @@ const crear_matriz = (cantidad_variables, expresion) => {
       }
     }
 
-    table.push(fila);
+    mapaK.push(fila);
   }
 
-  return [table, indice_terminos];
+  return [mapaK, indice_terminos];
 };
 
 const simplificar = (matriz, indice_terminos_existente) => {
@@ -150,4 +154,4 @@ function compararTerminos(termino1, termino2) {
   return resultado;
 }
 
-module.exports = { table, crear_matriz, simplificar };
+module.exports = { mapaK, crear_matriz, simplificar };
