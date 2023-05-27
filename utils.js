@@ -22,6 +22,7 @@ const mapaK = new Tabla({
   },
 });
 
+
 // Función para crear la tabla de mapas de Karnaugh
 const crear_mapaK = (cantidad_variables, expresion) => {
   // Definir los encabezados de la tabla para diferentes cantidades de variables
